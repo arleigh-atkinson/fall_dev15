@@ -3,32 +3,32 @@
 
 #Methods
 
-def addition(num1, num2)
+def addition(input1, input2)
   num1 + num2
 end
 
-def subtraction(num1, num2)
+def subtraction(input1, inut2)
   num1 - num2
 end
 
-def multiply(num1, num2)
+def multiply(input1, input2)
   num1 * num2
 end
 
-def divide(num1, num2)
+def divide(input1, input2)
   num1 / num2
 end
 
-def mod(num1, num2)
+def mod(input1, input2)
   num1 % num2
 end
 
-def root(num1)
-  Math.sqrt(num1)
+def root(input1)
+  Math.sqrt(input1)
 end
 
-def power(num1,num2)
-  num1 ** num2
+def power(input1,input2)
+  input1 ** input2
 end
 
 def end_check(input)
@@ -39,42 +39,58 @@ def end_check(input)
   end
 end
 
+def display(input1,input2,op)
+  puts op(input1,input2)
+end
+
+def error_check()
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Main Program
 loop do 
-  puts "Please input your desired operation or type quit"
+  puts "What would you like to calculate? or type quit"
 
   user_input = gets.chomp
 
-  if end_check(user_input) == 1 || 2
+  if end_check(user_input) == 1 
     user_input = user_input.split(' ')
-    user_input[0] = user_input[0].to_i
-    user_input[2] = user_input[2].to_i
-    if end_check(user_input) == 2
-      user_input[0] = prev_value
+    num1 = user_input[0].to_i
+    oper = user_input[1]
+    num2 = user_input[2].to_i
 
-    case user_input[1]
+    case oper
 
       when '+' 
-      puts addition(user_input[0], user_input[2]) 
+      puts addition(num1,num2)
 
       when '-'
-      puts subtraction(user_input[0], user_input[2])
+      puts subtraction(num1,num2)
 
       when '*'
-      puts multiply(user_input[0], user_input[2])
+      puts multiply(num1,num2)
 
-      when '/' # 3 / 3 = 0?
-      puts divide(user_input[0], user_input[2])
+      when '/' 
+      puts divide(num1,num2)
 
       when '%'
-      puts mod(user_input[0], user_input[2])
+      puts mod(num1,num2)
 
       when 'sqrt'
-      puts root(user_input[0])
+      puts root(num1)
 
       when '^'
-      puts power(user_input[0], user_input[2])
+      puts power(num1,num2)
     end
   end 
   break if end_check(user_input) == 0
